@@ -1,7 +1,7 @@
 # --全栈数据工程师养成攻略的代码实现
 # -*- coding: utf-8 -*-
 
-import time
+
 import sys 
 reload(sys) 
 sys.setdefaultencoding('utf-8')  
