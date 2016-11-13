@@ -7,7 +7,7 @@ Created on Sat Oct 22 23:36:45 2016
 """
 import sys 
 reload(sys) 
-sys.setdefaultencoding('utf-8') #默认ACII编码不支持中文，故用utf-8编码
+sys.setdefaultencoding('utf-8')   #默认ACII编码不支持中文，故用utf-8编码
 
 #计算出现了多少汉字，每个汉字出现了多少次，出现的最频繁的汉字
 file=open('/Users/enniu/Desktop/xyj.txt')
@@ -28,10 +28,10 @@ for line in file:
         if not numbers.has_key(line[i]):
             numbers[line[i]]=0
         numbers[line[i]]+=1
+        
 ordernumbers=sorted(numbers.items(),key=lambda item:item[1],reverse=True)   #字典按照值来排序
 fw=open('/Users/enniu/Desktop/outcome.txt','w')
 for x in ordernumbers:
     fw.write(x[0]+':'+str(x[1])+'\n')
 fw.close()
-
 file.close()
