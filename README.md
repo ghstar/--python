@@ -1,14 +1,9 @@
 # --全栈数据工程师养成攻略的代码实现
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Oct 22 23:36:45 2016
-
-@author: enniu
-"""
 
 import sys 
 reload(sys) 
-sys.setdefaultencoding('utf-8')   #默认ACII编码不支持中文，故用utf-8编码
+sys.setdefaultencoding('utf-8')  
 
 file=open('/Users/enniu/Desktop/xyj.txt')
 result=[]
@@ -16,9 +11,9 @@ numbers={}
 
 for line in file:
 	line=line.strip()
-	if len(line)==0:  		   #去除左右空白符    
+	if len(line)==0:  		  
 		continue
-    line=line.decode('UTF-8')  #字符串转为Unicode形式，否则又会出现乱码。与下面语句等价
+    line=line.decode('UTF-8') 
     #line=unicode(line)    
     for i in range(0,len(line)):
         if line[i] in ['.','.',':','!','-','，','。','！','：']:
@@ -29,9 +24,10 @@ for line in file:
             numbers[line[i]]=0
         numbers[line[i]]+=1
         
-ordernumbers=sorted(numbers.items(),key=lambda item:item[1],reverse=True)   #字典按照值来排序
+ordernumbers=sorted(numbers.items(),key=lambda item:item[1],reverse=True)   
 fw=open('/Users/enniu/Desktop/outcome.txt','w')
 for x in ordernumbers:
     fw.write(x[0]+':'+str(x[1])+'\n')
 fw.close()
+
 file.close()
