@@ -4,11 +4,9 @@
 import sys 
 reload(sys) 
 sys.setdefaultencoding('utf-8')  
-
 file=open('/Users/enniu/Desktop/xyj.txt')
 result=[]
 numbers={}
-
 for line in file:
 	line=line.strip()
 	if len(line)==0:  		  
@@ -23,11 +21,9 @@ for line in file:
         if not numbers.has_key(line[i]):
             numbers[line[i]]=0
         numbers[line[i]]+=1
-        
-ordernumbers=sorted(numbers.items(),key=lambda item:item[1],reverse=True)   
+        ordernumbers=sorted(numbers.items(),key=lambda item:item[1],reverse=True)   
 fw=open('/Users/enniu/Desktop/outcome.txt','w')
 for x in ordernumbers:
     fw.write(x[0]+':'+str(x[1])+'\n')
 fw.close()
-
 file.close()
